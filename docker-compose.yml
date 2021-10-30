@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  ecommerce-ui:
+    container_name: ecommerce-ui
+    build: ./eui
+    ports:
+      - 3000:3000
+    networks:
+      - ecommerce-network
+
+  ecommerce-backend:
+    container_name: ecommerce-backend
+    build: ./ebackend
+    ports: 
+      - 5000:5000
+    networks:
+      - ecommerce-network
+
+networks:
+  ecommerce-network:
+    driver: bridge
